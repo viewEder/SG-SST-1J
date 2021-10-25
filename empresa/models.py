@@ -50,19 +50,14 @@ class NivelAcademico(models.Model):## Clase que se usara para la creación de lo
 
 class Cargos(models.Model):
     cargo = models.CharField(verbose_name='Cargo', max_length= 255, null=False)
-    salario_cargo = models.IntegerField(verbose_name='Salario')
+    salario_cargo = models.IntegerField(verbose_name='Salario', default=0)
 
     class Meta:
         verbose_name = 'Cargo'
         verbose_name_plural = 'Cargos'
 
-<<<<<<< HEAD
     def __str__(self) -> str:
         return self.cargo
-=======
-    def __str__(self):
-        return f'Cargo {self.cargo}'
->>>>>>> 010de1c77b81c8902a7f498187e7e53c406fd2b7
 
 class Empleado(models.Model): ## Clase destinadad a la creación de los empleados
     codigo_empleado = models.CharField(verbose_name='Código de Empleado', max_length= 20, null=False)
