@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # urls de registration
     path('accounts/',include('django.contrib.auth.urls')),
-    path('accounts/',include('registrations.urls'))
+    path('accounts/',include('registration.urls'))
 ]
 
 # Mostrar imagenes en modo DEBUG:

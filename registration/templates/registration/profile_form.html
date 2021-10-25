@@ -27,8 +27,8 @@
                                 {{form.cedula}}
                             </div>
                             <div class="col">
-                                <input type="date" class="form-control" value="{{form.fecha_nacimiento|date:'c'}}">
-                                <!-- {{form.fecha_nacimiento}} -->
+                                <input type="text" class="form-control vDateField" value="{{form.fecha_nacimiento |date:'c'}}">
+                                <span>{{form.fecha_nacimiento}}</span>
                             </div>
                         </div>
                         <div class="row">

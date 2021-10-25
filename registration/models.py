@@ -26,11 +26,14 @@ class Profile(models.Model):
     profesion = models.CharField(max_length=255,verbose_name="Profesion", null=True, blank=True)
     cedula = models.CharField(max_length=20,verbose_name="Cedula", null=True, blank=True)
     genero = models.CharField(max_length=20, choices=Generos,verbose_name="Genero",default="Otro")
-    fecha_nacimiento = models.DateField(verbose_name="Fecha Nacimiento",null=False,blank=False)
+    fecha_nacimiento = models.DateField(verbose_name="Fecha Nacimiento", null=True,blank=True)
     estado_civil = models.CharField(max_length=20, choices=EstaCivil,verbose_name="Estado Civil",default="No indica")
     
     class Meta:
         ordering = ['usuario__username']
+    
+    def __str__(self):
+        return f(self.usuario)
 
 # Función exclusiva para los usuarios logueados:
 @receiver(post_save, sender=User)
