@@ -22,12 +22,8 @@ urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
     # urls de registration
-<<<<<<< HEAD
-    path('accounts/',include('django.contrib.auth.urls'))
-=======
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('registration.urls')),
->>>>>>> 29ab290b9e8490962e370b5a923b54693ae53945
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('accounts/',include('registrations.urls'))
 ]
 
 # Mostrar imagenes en modo DEBUG:
