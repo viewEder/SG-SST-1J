@@ -50,7 +50,7 @@ class NivelAcademico(models.Model):## Clase que se usara para la creación de lo
 
 class Cargos(models.Model):
     cargo = models.CharField(verbose_name='Cargo', max_length= 255, null=False)
-    salario_cargo = models.IntegerField(verbose_name='Salario')
+    salario_cargo = models.IntegerField(verbose_name='Salario', default=0)
 
     class Meta:
         verbose_name = 'Cargo'
