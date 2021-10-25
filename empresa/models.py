@@ -46,6 +46,9 @@ class Cargos(models.Model):
         verbose_name = 'Cargo'
         verbose_name_plural = 'Cargos'
 
+    def __str__(self) -> str:
+        return self.cargo
+
 class Empleado(models.Model): ## Clase destinadad a la creación de los empleados
     codigo_empleado = models.CharField(verbose_name='Código de Empleado', max_length= 20, null=False)
     area = models.ForeignKey(Areas, on_delete=CASCADE)
