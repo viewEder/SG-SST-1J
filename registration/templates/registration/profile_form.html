@@ -1,0 +1,115 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Ingreso Usuario {% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<section class="container" style="color: white;">
+    <div class="row">
+        <div>
+            <h1 class="text-success text-center">Perfil de {{user.first_name}} {{user.last_name}}</h1>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row text-left">
+                    <div class="col-8 mt-3">
+                        <label class="text-primary" for=""><strong>Descripción de tu Perfil</strong></label><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Cedula</strong></label><br>
+                            </div>
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Fecha Nacimiento</strong></label><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {{form.cedula}}
+                            </div>
+                            <div class="col">
+                                <input type="date" class="form-control" value="{{form.fecha_nacimiento|date:'c'}}">
+                                <!-- {{form.fecha_nacimiento}} -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Telefono</strong></label><br>
+                            </div>
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Celular</strong></label><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {{form.telefono}}
+                            </div>
+                            <div class="col">
+                                {{form.celular}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Genero</strong></label><br>
+                            </div>
+                            <div class="col">
+                                <label class="text-primary" for=""><strong>Estado Civil</strong></label><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+
+                                {{form.genero}}
+                            </div>
+                            <div class="col">
+                                {{form.estado_civil}}
+                            </div>
+                        </div>
+                        <label class="text-primary" for=""><strong>Dirección</strong></label><br>
+                        <div class="col">
+                            {{form.direccion}}
+                        </div>
+                        <label class="text-primary" for=""><strong>Profesion</strong></label><br>
+                        <div class="col">
+                            {{form.profesion}}
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="text-center">
+                            <h4 class="text-info">
+                                {{ user.username }} 
+                            </h4>
+                        </div>
+
+                        {% if request.user.profile.avatar %}
+                        <img src="{{ request.user.profile.avatar.url }}" alt="Imagen de Perfil " class="img-fluid">
+                        <br>
+
+                        <p class="text-center" >
+                            ¿Borrar Imagen?
+                            <input type="checkbox" name="avatar-clear" id="avatar-clear">
+                        </p>
+                        {% else %}
+                        <img src="{% static 'media/img/default.png' %}" alt="Imagen de Perfil " class="img-fluid">
+                        {{form.avatar}}
+                        {% endif %}
+                        <!-- Accesos a cambio de contraseña y de correo Electrónico -->
+                        <!-- <hr>
+                        {% if user.email %}
+                        <a type="button" class="btn btn-outline-warning col-12 mb-1" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Cambiar Correo Electrónico"> {{user.email}}</a>
+                        {% else %}
+                        <a type="button" class="btn btn-outline-warning col-12 mb-1">Adicionar Datos</a>
+                        {% endif %}
+                        <a type="button" class="btn btn-outline-info col-12">Cambiar Contraseña</a> -->
+                    </div>
+                </div>
+                <div class="d-grid gap-2 mt-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-danger me-md-2" type="reset">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
