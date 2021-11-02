@@ -20,11 +20,7 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
     telefonos = models.CharField(verbose_name='Teléfonos de contacto', max_length=40)
     correo = models.EmailField(verbose_name='Correo electrónico', max_length=255, null=False, blank=False)
     tipo = models.CharField(verbose_name='Tipo de empresa', max_length=100, null=False, blank=False)
-<<<<<<< HEAD
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
-=======
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
->>>>>>> 8bdb128996c7bbce08b6d5d91a2fcf3d56db1065
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
@@ -37,15 +33,9 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
 class Areas(models.Model):## Clase que se usara para la creación de las áreas que tiene la empresa ingresada
     nombre_area = models.CharField(verbose_name='Nombre Area', max_length= 255, null=False, blank=False)
     nit_empresa = models.ForeignKey(Empresa, on_delete= CASCADE)
-<<<<<<< HEAD
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
-    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
-
-=======
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
      
->>>>>>> 8bdb128996c7bbce08b6d5d91a2fcf3d56db1065
     class Meta:
         verbose_name = 'Nombre Area'
         verbose_name_plural = 'Areas de la empresa'
@@ -69,17 +59,10 @@ class NivelAcademico(models.Model):## Clase que se usara para la creación de lo
 
 class Cargos(models.Model):
     cargo = models.CharField(verbose_name='Cargo', max_length= 255, null=False)
-<<<<<<< HEAD
     salario_cargo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
-=======
-    salario_cargo = models.DecimalField(verbose_name='Salario',max_digits=12, decimal_places=2, default=0)
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
-    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
-     
->>>>>>> 8bdb128996c7bbce08b6d5d91a2fcf3d56db1065
     class Meta:
         verbose_name = 'Cargo'
         verbose_name_plural = 'Cargos'
@@ -99,15 +82,9 @@ class Empleado(models.Model): ## Clase destinadad a la creación de los empleado
     ssp = models.CharField(verbose_name='EPS', max_length= 100, null=False)
     sss = models.CharField(verbose_name='Fondo Pensiones', max_length= 100, null=False)
     cuenta_bancaria =  models.CharField(verbose_name='Número de cuenta', max_length= 20, null=False)
-<<<<<<< HEAD
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
-=======
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
-    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
-     
->>>>>>> 8bdb128996c7bbce08b6d5d91a2fcf3d56db1065
     class Meta:
         verbose_name = 'Empleado'
         verbose_name_plural = 'Empleados'
