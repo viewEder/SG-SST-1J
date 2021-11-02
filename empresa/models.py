@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.base import Model
-
+from datetime import date
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField
 from django.dispatch import receiver            # Libreria para hacer los cambios en los datos
@@ -19,6 +19,8 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
     telefonos = models.CharField(verbose_name='Teléfonos de contacto', max_length=40)
     correo = models.EmailField(verbose_name='Correo electrónico', max_length=255, null=False, blank=False)
     tipo = models.CharField(verbose_name='Tipo de empresa', max_length=100, null=False, blank=False)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
         verbose_name = 'Empresa'
@@ -30,6 +32,8 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
 class Areas(models.Model):## Clase que se usara para la creación de las áreas que tiene la empresa ingresada
     nombre_area = models.CharField(verbose_name='Nombre Area', max_length= 255, null=False, blank=False)
     nit_empresa = models.ForeignKey(Empresa, on_delete= CASCADE)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
         verbose_name = 'Nombre Area'
@@ -50,7 +54,9 @@ class NivelAcademico(models.Model):## Clase que se usara para la creación de lo
 
 class Cargos(models.Model):
     cargo = models.CharField(verbose_name='Cargo', max_length= 255, null=False)
-    salario_cargo = models.IntegerField(verbose_name='Salario', default=0)
+    salario_cargo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
         verbose_name = 'Cargo'
@@ -70,6 +76,8 @@ class Empleado(models.Model): ## Clase destinadad a la creación de los empleado
     ssp = models.CharField(verbose_name='EPS', max_length= 100, null=False)
     sss = models.CharField(verbose_name='Fondo Pensiones', max_length= 100, null=False)
     cuenta_bancaria =  models.CharField(verbose_name='Número de cuenta', max_length= 20, null=False)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
         verbose_name = 'Empleado'
