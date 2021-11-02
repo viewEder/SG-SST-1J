@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'empresa',
+    #'comites',
+    #'formatos',
 ]
 
 MIDDLEWARE = [
