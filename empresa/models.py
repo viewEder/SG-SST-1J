@@ -112,7 +112,7 @@ class Capacitaciones(models.Model):
 
 class Sanidad(models.Model):
     enfermedad = models.CharField(verbose_name="Tipo de Enfermedad",max_length=255)
-    pandemia = models.CharField(verbose_name="Es Pandemia?")
+    pandemia = models.CharField(verbose_name="Es Pandemia?", max_length=2)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el")
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")    
 

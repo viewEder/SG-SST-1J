@@ -1,11 +1,7 @@
 from django.db import models
-
 from django.db.models.base import Model
-
 from django.db.models.deletion import CASCADE
-
 from .models import * 
-
 from empresa.models import Empleado
 
 # Create your models here.
