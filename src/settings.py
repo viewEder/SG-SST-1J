@@ -41,7 +41,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'empresa',
+<<<<<<< HEAD
     'comite',
+=======
+    #'comites',
+    #'formatos',
+>>>>>>> cf2f1316370e2400a38fc7c85285aedb9f516ba0
 ]
 
 

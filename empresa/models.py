@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 from django.db.models.base import Model
-
+from datetime import date
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import CharField
 from django.dispatch import receiver            # Libreria para hacer los cambios en los datos
@@ -20,7 +20,7 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
     telefonos = models.CharField(verbose_name='Teléfonos de contacto', max_length=40)
     correo = models.EmailField(verbose_name='Correo electrónico', max_length=255, null=False, blank=False)
     tipo = models.CharField(verbose_name='Tipo de empresa', max_length=100, null=False, blank=False)
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
@@ -79,10 +79,11 @@ class Empleado(models.Model): ## Clase destinadad a la creación de los empleado
     arl = models.CharField(verbose_name='ARL', max_length= 100, null=False)
     ssp = models.CharField(verbose_name='EPS', max_length= 100, null=False)
     sss = models.CharField(verbose_name='Fondo Pensiones', max_length= 100, null=False)
+    ccf =  models.CharField(verbose_name='Caja de Compensación', max_length= 100, null=False)
     cuenta_bancaria =  models.CharField(verbose_name='Número de cuenta', max_length= 20, null=False)
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
-     
+
     class Meta:
         verbose_name = 'Empleado'
         verbose_name_plural = 'Empleados'
@@ -102,3 +103,35 @@ class Responsabilidades(models.Model):
 
     def __str__(self):
         return f'{self.responsabilidad[0:15]} (ver más)...'
+
+class Capacitaciones(models.Model):
+    pass
+
+
+class Sanidad(models.Model):
+    enfermedad = models.CharField(verbose_name="Tipo de Enfermedad",max_length=255)
+    pandemia = models.CharField(verbose_name="Es Pandemia?")
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el")
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")    
+
+    class Meta:
+        verbose_name = 'Sanidad (COVID-19 u otras)'
+        verbose_name_plural = 'Sanidades (COVID-19 u otras)'
+
+    def __str__(self):
+        return f'{self.enfermedad}'
+
+class DetalleSanidad(models.Model):
+    empleado = models.ForeignKey(Empleado,on_delete=CASCADE)
+    vacuna = models.CharField(verbose_name="Vacuna", max_length=144)
+    dosis = models.IntegerField(verbose_name="Número Dosis", null=True, blank=True)
+    fecha_dosis = models.DateField(verbose_name="Fecha de aplicación", auto_now=False)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el")
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el") 
+
+    class Meta:
+        verbose_name = 'Detalle Tratamiento'
+        verbose_name_plural = 'Detalle Tratamientos'
+
+    def __str__(self):
+        return f'{self.empleado}'
