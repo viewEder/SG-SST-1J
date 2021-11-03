@@ -6,6 +6,7 @@ from django.db.models.fields import CharField, IntegerField, TextField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from core.types.generos import Generos
 from core.types.estacivil import EstaCivil
+from core.types.parentesco import Parentesco
 from django.dispatch import receiver    # Libreria para hacer los cambios en los datos
 from django.db.models.signals import post_save  # Complemento de dispatch
 
@@ -26,8 +27,10 @@ class Profile(models.Model):
     profesion = models.CharField(max_length=255,verbose_name="Profesion", null=True, blank=True)
     cedula = models.CharField(max_length=20,verbose_name="Cedula", null=True, blank=True)
     genero = models.CharField(max_length=20, choices=Generos,verbose_name="Genero",default="Otro")
-    fecha_nacimiento = models.DateField(verbose_name="Fecha Nacimiento", null=True,blank=True)
+    fecha_nacimiento = models.DateField(verbose_name="Fecha Nacimiento", null=False,blank=False)
     estado_civil = models.CharField(max_length=20, choices=EstaCivil,verbose_name="Estado Civil",default="No indica")
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
     
     class Meta:
         ordering = ['usuario__username']
@@ -40,3 +43,18 @@ class Profile(models.Model):
 def ensure_profile_exists(sender, instance, **kwargs):
     if kwargs.get('created', False):
         Profile.objects.get_or_create(usuario=instance)
+
+
+class Contacto_Emergencia(models.Model):
+    usuario = models.ForeignKey(User, on_delete=CASCADE)
+    contacto_emergencia = models.CharField(max_length=255, verbose_name="Contacto Emergencia", null=True, blank=True)
+    parentesco_emergercia = models.CharField(max_length=20, choices=Parentesco,verbose_name="Parentesco", null=True, blank=True)
+    telefono_emergencia = models.CharField(max_length=20, verbose_name="Telefono Emergencia", null=True, blank=True)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
+
+    class Meta:
+        ordering = ['usuario__username']
+    
+    def __str__(self):
+        return f(self.usuario)

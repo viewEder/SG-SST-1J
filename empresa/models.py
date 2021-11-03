@@ -83,13 +83,7 @@ class Empleado(models.Model): ## Clase destinadad a la creación de los empleado
     sss = models.CharField(verbose_name='Fondo Pensiones', max_length= 100, null=False)
     ccf =  models.CharField(verbose_name='Caja de Compensación', max_length= 100, null=False)
     cuenta_bancaria =  models.CharField(verbose_name='Número de cuenta', max_length= 20, null=False)
-<<<<<<< HEAD
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
-=======
-    email_empleado = models.EmailField(verbose_name="Correo del empleado",unique=True,max_length=255)
-    tipo_contrato = models.CharField(verbose_name='Tipo Contrato', max_length= 20, null=False)### hacer chocier
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
->>>>>>> 8058268a9fe737dd0fd590a0d478ba4d98db7c4e
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
