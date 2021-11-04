@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'core',
     'empresa',
     'comite',
-    #'formatos',
+    'formatos',
 ]
 
 
