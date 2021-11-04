@@ -4,7 +4,6 @@ from django import forms
 from django.forms import widgets, ChoiceField
 from django.contrib.auth.models import User
 
-
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -17,7 +16,7 @@ class ProfileForm(forms.ModelForm):
             'profesion' : forms.TextInput(attrs = {'class':'form-control mt-2', 'placeholder':'Profesión'}),
             'cedula' : forms.TextInput(attrs = {'class':'form-control mt-2', 'placeholder':'Cedula'}),
             'genero' : forms.Select(attrs = {'class':'form-control mt-2'}),
-            'fecha_nacimiento' : forms.DateInput(attrs = {'class':'form-control mt-2'}),
+            'fecha_nacimiento' : forms.DateInput(format=('%Y-%m-%d'),attrs = {'class':'form-control mt-2', 'type':'date'}),
             'estado_civil' : forms.Select(attrs = {'class':'form-control mt-2'}),
         }
 
