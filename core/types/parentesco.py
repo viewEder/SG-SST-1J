@@ -1,0 +1,10 @@
+Parentesco=(
+    (("Mamá"),("Mamá")),
+    (("Papá"),("Papá")),
+    (("Hermano(a)"),("Hermano(a)")),
+    (("Primo(a)"),("Primo(a)")),
+    (("Tio(a)"),("Tio(a)")),
+    (("Abuelo(a)"),("Abuelo(a)")),
+    (("Hermano(a)"),("Hermano(a)")),
+    (("Otro"),("Otro"))
+)

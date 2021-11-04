@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'empresa',
-    #'comites',
+    'comite',
     #'formatos',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
