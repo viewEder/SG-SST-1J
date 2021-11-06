@@ -43,13 +43,8 @@ INSTALLED_APPS = [
     'empresa',
     'comite',
     'formatos',
-<<<<<<< HEAD
     'proveedor',
     'capacitaciones',
-=======
-    'ausentismos',
-    'presupuesto',
->>>>>>> d566c3f1d1d8b902a219665e280e458812a9e363
 ]
 
 
