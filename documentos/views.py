@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 
 # View para los documentos
-class Document(TemplateView):
-    template_name = 'documentos/documents.html'
+class TipoDocumentoPageView(TemplateView):
+    print('llega')
+    template_name = 'documentos/documentos.html'
     
 

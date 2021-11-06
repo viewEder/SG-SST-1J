@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'core',
+    'empresa',
+    'comite',
+    'formatos',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,7 +133,7 @@ STATIC_URL = '/static/'
 
 # Archivos Media:
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "core/static/media/img")
+MEDIA_ROOT = os.path.join(BASE_DIR, "core/static/media/img/")
 
 # Statics en todas las apps:
 STATICFILES_DIRS = (

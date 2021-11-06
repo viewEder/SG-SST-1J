@@ -1,5 +1,6 @@
 from django.urls import path
+from .views import TipoDocumentoPageView 
 
 urlpatterns = [
-    path('documents',)
+    path('documentos/',TipoDocumentoPageView.as_view(), name="documentos"),
 ]

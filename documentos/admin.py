@@ -15,11 +15,18 @@ class DocumentosEmpleadoAdmin(admin.ModelAdmin):
 
 # Modelo DocumentosEmpresa
 class DocumentosEmpresaAdmin(admin.ModelAdmin):
-    search_fields = ['title', 'name_file']
-    list_display = ['id','type_document','title','name_file','description','firm','end_date','created_at','updated_at','status']
+    search_fields = ['name_file']
+    list_display = ['id','type_document','name_file','description','created_at','updated_at','status']
+
+# Modelo DocumentosComite
+class DocumentosComiteAdmin(admin.ModelAdmin):
+    search_fields = ['type_document']
+    list_display = ['id','type_document','description', 'status']
+
 
 # Register your models here.
 
 admin.site.register(TipoDocumento, TipoDocumentoAdmin)
 admin.site.register(DocumentosEmpleado, DocumentosEmpleadoAdmin)
 admin.site.register(DocumentosEmpresa, DocumentosEmpresaAdmin)
+admin.site.register(DocumentosComite, DocumentosComiteAdmin)
