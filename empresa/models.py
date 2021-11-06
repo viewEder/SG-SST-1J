@@ -11,6 +11,18 @@ from core.types.enfermedad import *
 from core.types.medicamentos import *
 # Create your models here.
 
+class TipoEmpresa(models.Model):
+    tipo_empresa = models.CharField(verbose_name='Nombre de Tipo de Empresa', max_length=200, null=False, blank=False)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
+
+    class Meta:
+        verbose_name = "Tipo de Empresa"
+        verbose_name_plural = "Tipo de Empresa"
+
+    def __str__(self) -> str:
+        return self.tipo_empresa
+
 class Empresa(models.Model): ## Clase que se usara para la creación de las empresas
     nombre = models.CharField(verbose_name='Nombre de Empresa', max_length=200, null=False, blank=False)
     nit = models.CharField(verbose_name='NIT', max_length=15, null=False, blank=False)
