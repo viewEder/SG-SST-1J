@@ -1,25 +1,27 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from empresa.models import TipoEmpresa
 
 # Create your models here.
 
 class Proveedor(models.Model):
-    razon_social = models.CharField(verbose_name="Razon Social", null=False,blank=False)
-    nit = models.CharField(verbose_name="Nit", null=False,blank=False,unique=True)
-    certificador_arl = models.CharField(verbose_name="Certificado ARL")
+    tipo_empresa = models.ForeignKey(TipoEmpresa, on_delete=CASCADE)
+    razon_social = models.CharField(verbose_name="Razon Social", max_length=255, null=False,blank=False)
+    nit = models.CharField(verbose_name="Nit", max_length=30, null=False,blank=False,unique=True)
+    certificador_arl = models.CharField(verbose_name="Certificado ARL", max_length=255)
     es_autorizado = models.BooleanField(verbose_name="Es Autorizado")
-    seguridad_social = models.CharField(verbose_name="Seguridad Social")
-    ficha_seg_productos = models.CharField(verbose_name="Ficha Productos")
-    telefono1 = models.CharField(verbose_name="Telefono 1")
-    telefono2 = models.CharField(verbose_name="Telefono 2")
+    seguridad_social = models.CharField(verbose_name="Seguridad Social", max_length=30)
+    ficha_seg_productos = models.CharField(verbose_name="Ficha Productos", max_length=255)
+    telefono1 = models.CharField(verbose_name="Telefono 1", max_length=30)
+    telefono2 = models.CharField(verbose_name="Telefono 2", max_length=30)
     email = models.EmailField(verbose_name="Email")
-    #tipo_empresa = models.CharField(verbose_name="Tipo Empresa")
-    activo = models.BooleanField(verbose_name="Activo")
+    activo = models.BooleanField(verbose_name="Activo",default=True)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
-        ordering = ['razon_social']
+        verbose_name = 'Proveedor'
+        verbose_name_plural = 'Proveedores'
     
     def __str__(self):
         return f(self.razon_social)
@@ -32,14 +34,15 @@ def custom_upload_to(instance, filename):
     return 'epp/' + filename
 
 class Elementos_PP(models.Model):
-    nombre = models.CharField(verbose_name="Nombre EPP", null=False,blank=False)
+    nombre = models.CharField(verbose_name="Nombre EPP",max_length=255, null=False,blank=False)
     imagen = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
-    activo = models.BooleanField(verbose_name="Activo")
+    activo = models.BooleanField(verbose_name="Activo",default=True)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
-        ordering = ['nombre']
+        verbose_name = 'Elementos de Proteccion Personal'
+        verbose_name_plural = 'Elementos de Proteccion Personal'
     
     def __str__(self):
         return f(self.nombre)
@@ -47,10 +50,11 @@ class Elementos_PP(models.Model):
 class Elementos_Proveedor(models.Model):
     id_proveedor = models.ForeignKey(Proveedor, on_delete=CASCADE)
     id_elemento = models.ForeignKey(Elementos_PP, on_delete=CASCADE)
-    vida_util = models.IntegerField(verbose_name="Vida Util")
-    activo = models.BooleanField(verbose_name="Activo")
+    vida_util = models.IntegerField(verbose_name="Meses de Vida Util")
+    activo = models.BooleanField(verbose_name="Activo",default=True)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
-        ordering = ['id_elemento']
+        verbose_name = 'Elementos Proveedor'
+        verbose_name_plural = 'Elementos Proveedor'
