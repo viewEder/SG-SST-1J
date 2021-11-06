@@ -5,13 +5,13 @@ from datetime import date
 from django.db.models.deletion import CASCADE
 from django.db.models.expressions import ValueRange
 from empresa.models import Empleado 
-#from proveedor.models import Proveedor
+from proveedor.models import Proveedor
 
 # Create your models here.
 
 
 class Periodo(models.Model):
-    anio = models.IntegerField(verbose_name="Año", max_length=4)
+    anio = models.IntegerField(verbose_name="Año")
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el")
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
@@ -24,8 +24,8 @@ class Periodo(models.Model):
 
 
 class EjecucionPresupuesto(models.Model):
-    #id_proveedor = models.ForeignKey(Proveedor,on_delete=CASCADE) 
-    fecha = models.DateField(verbose_name="Fecha", auto_now=False)
+    id_proveedor = models.ForeignKey(Proveedor,on_delete=CASCADE) 
+    fecha = models.DateField(verbose_name="Fecha", auto_now=False, null=True)
     factura = models.CharField(verbose_name="Factura", max_length=255, null=False)
     cantidad = models.DecimalField(verbose_name="Cantidad", max_digits=15, decimal_places=2)
     valor_sin_iva = models.DecimalField(verbose_name="Valor Sin IVA", max_digits=12, decimal_places=2)
