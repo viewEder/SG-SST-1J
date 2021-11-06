@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'empresa',
     'comite',
     'formatos',
+    'ausentismos',
+    'presupuesto',
 ]
 
 
