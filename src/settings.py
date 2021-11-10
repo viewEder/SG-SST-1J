@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'registration',
+    'documentos',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'core',
+    'empresa',
+    'comite',
+    'formatos',
+    'proveedor',
+    'capacitaciones',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,7 +135,7 @@ STATIC_URL = '/static/'
 
 # Archivos Media:
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "core/static/media/img")
+MEDIA_ROOT = os.path.join(BASE_DIR, "core/static/media/img/")
 
 # Statics en todas las apps:
 STATICFILES_DIRS = (

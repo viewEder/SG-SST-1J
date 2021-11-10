@@ -18,7 +18,6 @@ class ProfilePageView(UpdateView):
     success_url = reverse_lazy('profile')
     template_name = 'registration/profile_form.html'
     
-
     def get_object(self):
         profile, created = Profile.objects.get_or_create(usuario = self.request.user)
         return profile
