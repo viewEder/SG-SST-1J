@@ -21,6 +21,7 @@ class Cie10(models.Model):
         return f'Diagnóstico {self.diagnostico}'
 
 class Incapacidades(models.Model):
+    
     mes  = models.CharField(verbose_name="Mes", max_length=30)
     origen = models.CharField(verbose_name="Origen", max_length=155)
     clasificacion = models.CharField(verbose_name="Clasificación", max_length=155)
@@ -34,8 +35,8 @@ class Incapacidades(models.Model):
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
-        verbose_name = 'Incapacidad'
-        verbose_name_plural = 'Incapacidades'
+        verbose_name = 'Registro Incapacidad'
+        verbose_name_plural = 'Registro Incapacidades'
 
     def __str__(self):
         return f'Incapacidad {self.clasificacion}'

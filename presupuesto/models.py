@@ -17,7 +17,7 @@ class Periodo(models.Model):
 
     class Meta:
         verbose_name = 'Periodo'
-        verbose_name_plural = 'Periodos'
+        verbose_name_plural = 'Periodo Presupuestal'
 
     def __str__(self):
         return f'Año {self.anio}'
@@ -37,11 +37,11 @@ class EjecucionPresupuesto(models.Model):
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
     class Meta:
-        verbose_name = 'Factutra'
-        verbose_name_plural = 'Factutras'
+        verbose_name = 'Ejecucion presupuestal'
+        verbose_name_plural = 'Ejecuciones presupuestales'
 
     def __str__(self):
-        return f'Factura {self.factura}'
+        return self.factura
 
 
 class CronogramaPresupuesto(models.Model):  
@@ -55,7 +55,7 @@ class CronogramaPresupuesto(models.Model):
     activo = models.BooleanField(verbose_name="Activo", default=True)
     class Meta:
         verbose_name = 'Actividad'
-        verbose_name_plural = 'Actividades'
+        verbose_name_plural = 'Plan de Actividades'
 
     def __str__(self):
-        return f'Actividad {self.actividad}'
+        return self.actividad
