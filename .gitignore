@@ -4,6 +4,6 @@
 /_pycache_
 *_pycache_
 _pycache_
-/migration
-*migration/_pycache_
-*/migration/_pycache_
+/migrations
+*migrations/_pycache_
+*/migrations/_pycache_

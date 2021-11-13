@@ -47,8 +47,8 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
         return f'Nombre Empresa {self.nombre}'
 
 class Areas(models.Model):## Clase que se usara para la creación de las áreas que tiene la empresa ingresada
+    empresa = models.ForeignKey(Empresa, on_delete= CASCADE)
     nombre_area = models.CharField(verbose_name='Nombre Area', max_length= 255, null=False, blank=False)
-    nit_empresa = models.ForeignKey(Empresa, on_delete= CASCADE)
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
      
