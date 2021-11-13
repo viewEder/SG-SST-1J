@@ -30,3 +30,5 @@ admin.site.register(TipoDocumento, TipoDocumentoAdmin)
 admin.site.register(DocumentosEmpleado, DocumentosEmpleadoAdmin)
 admin.site.register(DocumentosEmpresa, DocumentosEmpresaAdmin)
 admin.site.register(DocumentosComite, DocumentosComiteAdmin)
+
+
