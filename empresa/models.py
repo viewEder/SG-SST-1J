@@ -3,9 +3,25 @@ from django.db import models
 from django.db.models.base import Model
 from datetime import date
 from django.db.models.deletion import CASCADE
-from django.db.models.fields import CharField
+# from django.db.models.fields import CharField
 from django.dispatch import receiver            # Libreria para hacer los cambios en los datos
+from core.types.pandemia import Espandemia
+from core.types.contrato import Contrato
+from core.types.enfermedad import *
+from core.types.medicamentos import *
 # Create your models here.
+
+class TipoEmpresa(models.Model):
+    tipo_empresa = models.CharField(verbose_name='Nombre de Tipo de Empresa', max_length=200, null=False, blank=False)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
+
+    class Meta:
+        verbose_name = "Tipo de Empresa"
+        verbose_name_plural = "Tipo de Empresa"
+
+    def __str__(self) -> str:
+        return self.tipo_empresa
 
 class Empresa(models.Model): ## Clase que se usara para la creación de las empresas
     nombre = models.CharField(verbose_name='Nombre de Empresa', max_length=200, null=False, blank=False)
@@ -13,8 +29,8 @@ class Empresa(models.Model): ## Clase que se usara para la creación de las empr
     actividad = models.CharField(verbose_name='Actividad Económica', max_length=255, null=False, blank=False)
     nivel_riesgo = models.CharField(verbose_name='Nivel de Riesgo', max_length=255)
     direccion = models.CharField(verbose_name='Dirección', max_length=255, null=False, blank=False)
-    ciudad = models.CharField(verbose_name='Ciudad', max_length=255, null=False, blank=False)
-    departamento = models.CharField(verbose_name='Departamento', max_length=255, null=False, blank=False)
+    ciudad = models.CharField(verbose_name='Ciudad', max_length=255, blank=True, null=True)
+    departamento = models.CharField(verbose_name='Departamento', max_length=255, blank=True, null=True)
     #cant_trabajadores = models.IntegerField(verbose_name='Cantidad de Trabajadores')
     naturaleza_empresa = models.CharField(verbose_name='Naturaleza jurídica', max_length=100, null=False, blank=False)
     telefonos = models.CharField(verbose_name='Teléfonos de contacto', max_length=40)
@@ -75,14 +91,26 @@ class Empleado(models.Model): ## Clase destinadad a la creación de los empleado
     cargo = models.ForeignKey(Cargos, on_delete=CASCADE)
     nivel_academico = models.ForeignKey(NivelAcademico, on_delete=CASCADE)
     fecha_ingreso = models.DateField(verbose_name='Fecha de ingreso')
-    salario_basico = models.DecimalField(verbose_name='Salario', max_digits=12, decimal_places=2,default=0)
+    salario_basico = models.DecimalField(verbose_name='Salario', max_digits=12, decimal_places=2)
     arl = models.CharField(verbose_name='ARL', max_length= 100, null=False)
     ssp = models.CharField(verbose_name='EPS', max_length= 100, null=False)
     sss = models.CharField(verbose_name='Fondo Pensiones', max_length= 100, null=False)
     ccf =  models.CharField(verbose_name='Caja de Compensación', max_length= 100, null=False)
+    sufre_enfermedad = models.CharField(verbose_name="Sufre Alguna Enfermedad",max_length=255, choices=SufrEnfermedad, null=True)
+    cual_enfermedad = models.CharField(verbose_name="Que enfermedad Sufre?",max_length=255, default="No indicada")
+    toma_medicamentos = models.CharField(verbose_name="Toma Medicamentos?",max_length=255, choices=TomaMedicamentos, null=True)
+    cual_medicamento = models.CharField(verbose_name="Que Medicamento toma?",max_length=255, null=True)
+    tipo_contrato = models.CharField(verbose_name="Tipo Contrato",max_length=255, choices=Contrato, null=True)
+    antiguedad = models.DecimalField(verbose_name="Tiempo en la empresa", max_digits=2, decimal_places=2,default=0)
     cuenta_bancaria =  models.CharField(verbose_name='Número de cuenta', max_length= 20, null=False)
-    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True) 
-    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
+    barrio = models.CharField(verbose_name="Barrio", max_length=255, null=True)
+    ciudad = models.CharField(verbose_name="Ciudad", max_length=255, null=True)
+    departamento = models.CharField(verbose_name="Departamento", max_length=255, null=True)
+    estrato = models.IntegerField(verbose_name="Estrato", null=True, blank=True)
+    fecha_retiro = models.DateField(verbose_name="Fecha de Retiro", auto_now=False, null=True)
+    create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)
+    modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el", null=True)
+
 
     class Meta:
         verbose_name = 'Empleado'
@@ -110,7 +138,7 @@ class Capacitaciones(models.Model):
 
 class Sanidad(models.Model):
     enfermedad = models.CharField(verbose_name="Tipo de Enfermedad",max_length=255)
-    pandemia = models.CharField(verbose_name="Es Pandemia?", max_length=2)
+    pandemia = models.CharField(verbose_name="Es Pandemia?",max_length=255, choices=Espandemia)## poner en un choicer
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el")
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")    
 
@@ -135,3 +163,10 @@ class DetalleSanidad(models.Model):
 
     def __str__(self):
         return f'{self.empleado}'
+
+
+
+
+
+
+         
