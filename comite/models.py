@@ -21,13 +21,11 @@ class Comite(models.Model): # Clase que se usara para la creación del comite
         return self.nombcomite
 
        
-
 class RolComite(models.Model): # Clase que se usara para la creación del comite
     tipo_rol = models.CharField(verbose_name='Rol de Comite', max_length=200, null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-
     class Meta:
         verbose_name = 'Rol Comite'
         verbose_name_plural = 'Rol Comite'

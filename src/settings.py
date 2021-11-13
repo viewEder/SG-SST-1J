@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'proveedor',
     'capacitaciones',
     'presupuesto',
+    'ausentismos',
 ]
 
 
