@@ -26,17 +26,17 @@ class ExamenMedico(models.Model):
       classification = models.CharField('Clasificación', max_length=250, null=True, blank=True)
       sub_classification = models.CharField('Sub Clasificación', max_length= 250, null=True, blank=True)
       effects = models.CharField('Efectos posibles', max_length=250, null=True, blank=True)
-      font = models.CharField('Fuentes', max_length=250, null=True, blank=True)
-      middle = models.CharField('Medio', max_length=250, null=True, blank=True)
+      font = models.CharField('Fuentes', max_length=250, null=True, blank=True) # source
+      middle = models.CharField('Medio', max_length=250, null=True, blank=True) # medio
       individual  = models.CharField('Individuo', max_length=250, null=True, blank=True)
-      nd = models.IntegerField('Nivel de deficiencia', default=0, null=True, blank=True)
-      ne = models.IntegerField('Nivel de exposición', default=0, null=True, blank=True)
-      np = models.IntegerField('Nivel de probabilidad', default=0, null=True, blank=True)
+      nd = models.IntegerField('Nivel de deficiencia', default=0, null=True, blank=True) # nivel_deficiencia
+      ne = models.IntegerField('Nivel de exposición', default=0, null=True, blank=True) # nivel_expocision
+      np = models.IntegerField('Nivel de probabilidad', default=0, null=True, blank=True) #  
       inp  = models.CharField('Interpretación np', max_length=250, null=True, blank=True)
       nc = models.IntegerField('Nivel de concecuencia', default=0, null=True, blank=True)
       n_risk = models.IntegerField('Nivel de riesgo', default=0, null=True, blank=True)
       a_risk = models.IntegerField('Aceptación riesgo', default=0, null=True, blank=True)
-      plant = models.IntegerField('Planta', default=0, null=True, blank=True)
+      plant = models.IntegerField('Planta', default=0, null=True, blank=True) # Level
       mission = models.IntegerField('Mision', default=0, null=True, blank=True)
       contractors = models.IntegerField('Contratistas', default=0, null=True, blank=True)
       practitioners = models.IntegerField('Practicantes', default=0, null=True, blank=True)
@@ -55,7 +55,7 @@ class ExamenMedico(models.Model):
       
       class Meta:
             verbose_name = ('Examen Medico')
-            verbose_name_plural = ('Examenes Medicos')
+            verbose_name_plural = ('Exámenes Médicos')
 
       def __str__(self):
             return "{0}".format(self.classification)
