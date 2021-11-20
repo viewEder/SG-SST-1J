@@ -32,7 +32,7 @@ class EquipoResponsable(models.Model): ## Clase que se usara para la creación d
             return f'Nombre Empresa {self.nombre_equipo}'  
 
 class PlanAnual(models.Model): ## Clase que se usara para la creación de las empresas
-        anio = models.IntegerField(verbose_name="Año",max_length=2, null=True, blank=True)
+        anio = models.IntegerField(verbose_name="Año", null=True, blank=True)
         objetivo= models.TextField(verbose_name='Objetivo', max_length=1000) 
         metas= models.TextField(verbose_name='Metas', max_length=1000) 
         alcance= models.TextField(verbose_name='Alcance', max_length=1000)        
@@ -59,7 +59,7 @@ class ActividadesPlan(models.Model): ## Clase que se usara para la creación del
         # Pendiente de modelo
         #periodicidad= models.ForeignKey(verbose_name='Periodicidad del pan anual', on_delete=models.CASCADE)
         fecha_planeacion= models.DateField(auto_now_add=True, verbose_name="Fecha de planeacion", null=True)              
-        estado_actividad= models.IntegerField(verbose_name='Estado de actividad', max_length=100, null=False, blank=False)
+        estado_actividad= models.IntegerField(verbose_name='Estado de actividad', null=False, blank=False)
         nombre_archivo= models.CharField(verbose_name='Interpretacion de resultados', max_length=40)
        
         create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  

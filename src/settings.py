@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'documentos',
     'accidentabilidad',
     'plananual',
-    'indicadores'
+    'indicadores',
 
     #app para la modificación estetica del admin
     #'colorfield',
