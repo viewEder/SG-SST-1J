@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'presupuesto',
     'documentos',
     'accidentabilidad',
+    'plananual',
+    'indicadores'
+
     #app para la modificación estetica del admin
     #'colorfield',
 ]
