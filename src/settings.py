@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'registration',
-    'documentos',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,10 +43,8 @@ INSTALLED_APPS = [
     'empresa',
     'comite',
     'formatos',
-    'proveedor',
-    'capacitaciones',
-    'presupuesto',
-    'ausentismos',
+    'documentos',
+    'accidentabilidad',
 ]
 
 

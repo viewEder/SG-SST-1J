@@ -57,4 +57,4 @@ class Contacto_Emergencia(models.Model):
         ordering = ['usuario__username']
     
     def __str__(self):
-        return f(self.usuario)
+        return self.usuario
