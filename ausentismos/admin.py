@@ -3,4 +3,7 @@ from ausentismos.models import *
 
 # Register your models here.
 admin.site.register(Cie10)
-admin.site.register(Incapacidades)
+
+class IncapacidadesAdmin(admin.ModelAdmin):
+    list_display = ('mes', 'origen', 'clasificacion')
+admin.site.register(Incapacidades,IncapacidadesAdmin)
