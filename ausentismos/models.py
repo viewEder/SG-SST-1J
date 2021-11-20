@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from empresa.models import Empleado
 from django.db.models.base import Model
 from datetime import date
 from django.db.models.deletion import CASCADE
@@ -21,7 +22,7 @@ class Cie10(models.Model):
         return f'Diagnóstico {self.diagnostico}'
 
 class Incapacidades(models.Model):
-    
+    empleado = models.ForeignKey(Empleado, on_delete= CASCADE, default=1)
     mes  = models.CharField(verbose_name="Mes", max_length=30)
     origen = models.CharField(verbose_name="Origen", max_length=155)
     clasificacion = models.CharField(verbose_name="Clasificación", max_length=155)
