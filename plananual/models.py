@@ -49,10 +49,10 @@ class PlanAnual(models.Model): ## Clase que se usara para la creación de las em
             return f'Nombre Empresa {self.objetivo}'
 
 class ActividadesPlan(models.Model): ## Clase que se usara para la creación del plan de actividades ssgt
-        plan = models.ForeingKey(PlanAnual, verbose_name='Plan Anual',on_delete=models.CASCADE)
-        estructura = models.ForeingKey(EstructuraPlanAnual, verbose_name='Identificacion de la estructura',on_delete=models.CASCADE)
-        equipo_responsable= models.ForeingKey(EquipoResponsable, verbose_name='Identificion del equipo responsable', on_delete=models.CASCADE)
-        etapa_phva= models.CharField(verbose_name='Etapa del phva',  choices=Phva, null=False, blank=False)
+        plan = models.ForeignKey(PlanAnual, verbose_name='Plan Anual',on_delete=models.CASCADE)
+        estructura = models.ForeignKey(EstructuraPlanAnual, verbose_name='Identificacion de la estructura',on_delete=models.CASCADE)
+        equipo_responsable= models.ForeignKey(EquipoResponsable, verbose_name='Identificion del equipo responsable', on_delete=models.CASCADE)
+        etapa_phva= models.CharField(verbose_name='Etapa del phva',  choices=Phva,max_length=40, null=False, blank=False)
         actividad= models.TextField(verbose_name='Actividades del plan anual', max_length=15, null=False, blank=False)        
         recursos= models.CharField(verbose_name='Recursos del plan anual', max_length=255)
         fuente_informacion = models.CharField(verbose_name='Fuente de informacion del plan anual', max_length=255, null=False, blank=False)
@@ -75,7 +75,7 @@ class ActividadesPlan(models.Model): ## Clase que se usara para la creación del
 
 
 class CumplimientoPlanAnual(models.Model): ## Clase que se usara para el cumplimiento de plana anual
-        actividad= models.ForeignKey(ActividadesPlan, verbose_name="Nombre de la actividad", on_delete=models.CASCADED)
+        actividad= models.ForeignKey(ActividadesPlan, verbose_name="Nombre de la actividad", on_delete=models.CASCADE)
         mes= models.IntegerField(verbose_name='Mes de la actividad,max_length=2') 
         porcentaje_cumplimiento= models.TextField(verbose_name='Metas', max_length=3) 
         fecha_cumplimiento= models.DateField(auto_now_add=True, verbose_name="Fecha de cumplimiento", null=True) 

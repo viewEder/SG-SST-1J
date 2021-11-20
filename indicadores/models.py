@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 from core.types.tipo_ind import tipo_ind
 
@@ -17,7 +18,7 @@ class TipoIndicador(models.Model): ## Clase que se usara para la creación de lo
  
  
 class Indicadores(models.Model): ## Clase que se usara para la creación de los indicadores delsgsst
-    tipo_indicador = models.ForeignKey(TipoIndicador, on_delete= CASCADE)
+    tipo_indicador = models.ForeignKey(TipoIndicador, on_delete=CASCADE)
     nombre = models.CharField(verbose_name='Nombre del indicador', max_length=200, null=False, blank=False)
     definicion= models.CharField(verbose_name='Definicion del indicador', max_length=15, null=False, blank=False)
     metodo_calculo= models.CharField(verbose_name='Metodo de calculo', max_length=255, null=False, blank=False)
