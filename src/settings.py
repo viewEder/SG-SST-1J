@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'core',
     'empresa',
-
     'comite',
     'formatos',
     'proveedor',
