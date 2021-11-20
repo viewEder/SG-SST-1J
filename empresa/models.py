@@ -75,7 +75,7 @@ class NivelAcademico(models.Model):## Clase que se usara para la creación de lo
 
 class Cargos(models.Model):
     cargo = models.CharField(verbose_name='Cargo', max_length= 255, null=False)
-    salario_cargo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    salario_cargo = models.IntegerField(verbose_name='Salario', default=0)    
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
@@ -165,3 +165,10 @@ class DetalleSanidad(models.Model):
 
     def __str__(self):
         return f'{self.empleado}'
+
+
+
+
+
+
+         

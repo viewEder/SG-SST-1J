@@ -25,8 +25,7 @@ urlpatterns = [
     path('accounts/',include('django.contrib.auth.urls')),
     path('accounts/',include('registration.urls')),
     path('comite/',include('comite.urls')),
-    #urls documentos
-    path('documentos/', include('documentos.urls'))
+
 ]
 
 # Mostrar imagenes en modo DEBUG:

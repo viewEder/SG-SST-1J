@@ -1,0 +1,17 @@
+C: do
+C: Do mayor
+C7: do7
+D: Re mayor
+D7: Re7
+Dm Re menor
+E: Mi mayor
+E7: Mi 7
+Em: Mi menor
+F: Fa
+G: Sol mayor
+G7: Sol7
+Gm: Sol menor
+A: A mayor
+A7: A7
+Am: A menor
+B7: Si7
