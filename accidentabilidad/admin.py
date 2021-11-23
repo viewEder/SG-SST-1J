@@ -3,51 +3,51 @@ from .models import *
 
 #Modelo Peligro
 class PeligroAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['danger_name']
+    list_display = ['id','danger_name','created_at','updated_at', 'status']
+    list_filter =['danger_name', 'created_at']
 
 #Modelo tipo accidente
 class TipoAccidenteAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['accident_type_name']
+    list_display = ['id','accident_type_name','created_at','updated_at', 'status']
+    list_filter =['accident_type_name', 'created_at']
 
 #Modelo Parte del cuerpo afectada
 class ParteDelCuerpoAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['body_part_name']
+    list_display = ['id','body_part_name','created_at','updated_at', 'status']
+    list_filter =['body_part_name', 'created_at']
 
 #Modelo MecanismoAccidente
 class MecanismoAccidenteAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['mechanism_name']
+    list_display = ['id','mechanism_name','created_at','updated_at', 'status']
+    list_filter =['mechanism_name', 'created_at']
 
 #Modelo AgenteAccidente
 class AgenteAccidenteAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['agent_name']
+    list_display = ['id','agent_name','created_at','updated_at', 'status']
+    list_filter =['agent_name', 'created_at']
 
 #Modelo TipoLeccion
 class TipoLeccionAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['lesson_ame']
+    list_display = ['id','lesson_ame','created_at','updated_at', 'status']
+    list_filter =['lesson_ame', 'created_at']
 
 #Modelo CausaBasica
 class CausaBasicaAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['cause_name']
+    list_display = ['id','cause_name','created_at','updated_at', 'status']
+    list_filter =['cause_name', 'created_at']
 
 #Modelo CausaInmediata
 class CausaInmediataAdmin(admin.ModelAdmin):
-    search_fields = ['name']
-    list_display = ['id','name','created_at','updated_at', 'status']
-    list_filter =['name', 'created_at']
+    search_fields = ['immediate_cause_name']
+    list_display = ['id','immediate_cause_name','created_at','updated_at', 'status']
+    list_filter =['immediate_cause_name', 'created_at']
 
 #Modelo Accidentabilidad
 class AccidentabilidadAdmin(admin.ModelAdmin):
