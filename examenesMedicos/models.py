@@ -80,28 +80,10 @@ class Medio(models.Model):
 
 class ExamenMedico(models.Model):
       activitie_danger = models.ForeignKey(ActividaesPeligro, on_delete=CASCADE,null=True,blank=True, verbose_name="Actividades de peligro")
-<<<<<<< HEAD
-      classification = models.CharField('Clasificación', max_length=250, null=True, blank=True)
-      sub_classification = models.CharField('Sub Clasificación', max_length= 250, null=True, blank=True)
-      effects = models.CharField('Efectos posibles', max_length=250, null=True, blank=True)
-      font = models.CharField('Fuentes', max_length=250, null=True, blank=True) # source
-      middle = models.CharField('Medio', max_length=250, null=True, blank=True) # medio
-      individual  = models.CharField('Individuo', max_length=250, null=True, blank=True)
-      nd = models.IntegerField('Nivel de deficiencia', default=0, null=True, blank=True) # nivel_deficiencia
-      ne = models.IntegerField('Nivel de exposición', default=0, null=True, blank=True) # nivel_expocision
-      np = models.IntegerField('Nivel de probabilidad', default=0, null=True, blank=True) #  
-      inp  = models.CharField('Interpretación np', max_length=250, null=True, blank=True)
-      nc = models.IntegerField('Nivel de concecuencia', default=0, null=True, blank=True)
-      n_risk = models.IntegerField('Nivel de riesgo', default=0, null=True, blank=True)
-      a_risk = models.IntegerField('Aceptación riesgo', default=0, null=True, blank=True)
-      plant = models.IntegerField('Planta', default=0, null=True, blank=True) # Level
-=======
       classification = models.ForeignKey(Clasificacion, on_delete=CASCADE,null=True,blank=True, verbose_name="Clasificación")
       possible_effects = models.ForeignKey(EfectoPosible, on_delete=CASCADE,null=True,blank=True, verbose_name="Efectos Posibles")
       source = models.ForeignKey(Fuente, on_delete=CASCADE,null=True,blank=True, verbose_name="Fuente")
       medium = models.ForeignKey(Medio, on_delete=CASCADE,null=True,blank=True, verbose_name="Medio")
-
-
       individual  = models.CharField('Individuo', max_length=250, null=True, blank=True)
       deficiency_level = models.IntegerField('Nivel de deficiencia', default=0, null=True, blank=True)
       exposure_level = models.IntegerField('Nivel de exposición', default=0, null=True, blank=True)
@@ -111,7 +93,6 @@ class ExamenMedico(models.Model):
       risk_level = models.IntegerField('Nivel de riesgo', default=0, null=True, blank=True)
       risk_acceptance = models.IntegerField('Aceptación riesgo', default=0, null=True, blank=True)
       plant = models.IntegerField('Planta', default=0, null=True, blank=True)
->>>>>>> e62cfcd958d89528bfbe2b1d5789f8ac22cb4b32
       mission = models.IntegerField('Mision', default=0, null=True, blank=True)
       contractors = models.IntegerField('Contratistas', default=0, null=True, blank=True)
       practitioners = models.IntegerField('Practicantes', default=0, null=True, blank=True)
