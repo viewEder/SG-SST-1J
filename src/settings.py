@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'admin_interface',
+    'admin_interface',
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,11 +51,11 @@ INSTALLED_APPS = [
     'accidentabilidad',
     'examenesMedicos',
     #app para la modificación estetica del admin
-    #'colorfield',
+    'colorfield',
 ]
 #Configuraciones necesarias para el plugin para la modificación estetica del admin
-# X_FRAME_OPTIONS = 'SAMEORIGIN'
-# SILENCED_SYSTEM_CHECKS = ['security.W019']
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SILENCED_SYSTEM_CHECKS = ['security.W019']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
