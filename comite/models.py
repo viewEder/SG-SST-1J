@@ -9,8 +9,8 @@ from empresa.models import Empleado
 
 class Comite(models.Model): # Clase que se usara para la creación del comite
     nombcomite = models.CharField(verbose_name='Nombre de Comite', max_length=200, null=False, blank=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True,verbose_name='Fecha de creacion')
+    updated_at = models.DateTimeField(auto_now=True,verbose_name='Fecha de ultima modificacion')
     
 
     class Meta:
