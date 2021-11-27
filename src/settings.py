@@ -52,9 +52,9 @@ INSTALLED_APPS = [
     'plananual',
     'indicadores',
     'ausentismos',
-    'examenesMedicos'
+    'examenesMedicos',
     #app para la modificación estetica del admin
-    #cd'colorfield',
+    #'colorfield',
 ]
 #Configuraciones necesarias para el plugin para la modificación estetica del admin
 #X_FRAME_OPTIONS = 'SAMEORIGIN'

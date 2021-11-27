@@ -3,6 +3,7 @@ from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from .models import * 
 from empresa.models import Empleado
+from core.types.rol import rol
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class Comite(models.Model): # Clase que se usara para la creación del comite
 
        
 class RolComite(models.Model): # Clase que se usara para la creación del comite
-    tipo_rol = models.CharField(verbose_name='Rol de Comite', max_length=200, null=False, blank=False)
+    tipo_rol = models.CharField(verbose_name='Rol de Comite',choices=rol, max_length=20, null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

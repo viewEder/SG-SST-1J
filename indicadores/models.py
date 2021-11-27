@@ -4,7 +4,7 @@ from core.types.tipo_ind import tipo_ind
  
 
 class TipoIndicador(models.Model): ## Clase que se usara para la creación de los indicadores delsgsst
-    tipo_indicador = models.IntegerField(verbose_name='Tipo de indicador', choices= tipo_ind, null=False, blank=False)        
+    tipo_indicador = models.CharField(verbose_name='Tipo de indicador',max_length=15, choices= tipo_ind, null=False, blank=False)        
     create_at = models.DateField(auto_now_add=True, verbose_name="Creado el", null=True)  
     modify_at = models.DateField(auto_now=True, verbose_name="Actualizado el")
 
